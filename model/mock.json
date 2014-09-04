@@ -1,0 +1,49 @@
+{
+  "AddressCollection": [
+    {
+      "PartnerId": "300000097",
+      "CompanyName": "Microsoft",
+      "City": "Porto Alegre",
+      "Region": "RS",
+      "Country": "BR",
+      "Latitude": "-30.034141",
+      "Longitude": "-51.217833"
+    },
+    {
+      "PartnerId": "300000001",
+      "CompanyName": "Nintendo",
+      "City": "Canoas",
+      "Region": "RS",
+      "Country": "BR",
+      "Latitude": "-29.917764",
+      "Longitude": "-51.185989"
+    },
+    {
+      "PartnerId": "300000002",
+      "CompanyName": "Sony",
+      "City": "Viamão",
+      "Region": "RS",
+      "Country": "BR",
+      "Latitude": "-30.085453",
+      "Longitude": "-51.015701"
+    },
+    {
+      "PartnerId": "300000003",
+      "CompanyName": "Google",
+      "City": "Cachoeirinha",
+      "Region": "RS",
+      "Country": "BR",
+      "Latitude": "-29.952276",
+      "Longitude": "-51.095352"
+    },
+    {
+      "PartnerId": "300000004",
+      "CompanyName": "Apple",
+      "City": "Alvorada",
+      "Region": "RS",
+      "Country": "BR",
+      "Latitude": "-29.995102",
+      "Longitude": "-51.082993"
+    }
+  ]
+}

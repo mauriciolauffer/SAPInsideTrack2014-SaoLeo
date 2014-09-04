@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv='Content-Type' content='text/html;charset=UTF-8' />
+<meta name="author" content="Mauricio Lauffer">
+<title>UI5 - SAP PI - XMLModel</title>
+
+<script src="resources/sap-ui-core.js" id="sap-ui-bootstrap"
+	data-sap-ui-libs="sap.m" data-sap-ui-theme="sap_bluecrystal">
+	
+</script>
+<script>
+	var sUsername = ""; //Usuário do backend
+	var sPassword = ""; //Senha do backend
+	var sURL = ""; //URL do backend
+
+	//SOAP protocol
+	var sRequest = '<?xml version="1.0"?>'
+			+ '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:user="http://mynamespace.com.br/basis/users">'
+			+ '<soapenv:Header/>' + '<soapenv:Body>' + '<user:MT_UserList_Req>'
+			+ '<max_rows_number>50</max_rows_number>'
+			+ '<with_user_name>X</with_user_name>' + '</user:MT_UserList_Req>'
+			+ '</soapenv:Body>' + '</soapenv:Envelope>';
+
+	//Criar Model
+	var oModel = new sap.ui.model.xml.XMLModel();
+
+	//Definir NameSpaces usados no XML
+	oModel.setNameSpace("http://schemas.xmlsoap.org/soap/envelope/", "SOAP");
+	oModel.setNameSpace("http://mynamespace.com.br/basis/users", "ns1");
+
+	//Criar lista
+	var oList = new sap.m.List({
+		growing : true,
+		growingThreshold : 3
+	});
+
+	//Definir Model para lista
+	oList.setModel(oModel);
+
+	//Bind itens do Model com Lista
+	oList.bindItems("/SOAP:Body/ns1:MT_UserList_Resp/User/",
+			new sap.m.StandardListItem({
+				title : "{user_name/text()}"
+			}));
+
+	//Chamada AJAX para conectar com PI
+	$.ajax({
+		url : sURL,
+		type : "POST",
+		data : sRequest,
+		dataType : "xml",
+		username : sUsername,
+		password : sPassword,
+		cache : false,
+		crossDomain : true,
+		xhrFields : {
+			withCredentials : true
+		},
+		contentType : "text/xml; charset=utf-8",
+		success : function(data, textStatus, jqXHR) {
+			alert("Conectou ao PI! Carregar XML de resposta   =)");
+			oModel.setData(data);
+		},
+		error : function(xhr, status) {
+			alert("Erro ao conectar ao PI! Carregar arquivo XML local  =/");
+			var sURL = "./model/mock.xml";
+			oModel.loadData(sURL);
+		}
+	});
+
+	//Despejar conteúdo no HTML
+	oList.placeAt("content");
+</script>
+
+</head>
+<body class="sapUiBody" role="application">
+	<div id="content"></div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+   <SOAP:Header/>
+   <SOAP:Body>
+      <ns1:MT_UserList_Resp xmlns:ns1="http://mynamespace.com.br/basis/users">
+         <User>
+            <user_name>ALEREMOTE</user_name>
+            <first_name>Background User</first_name>
+            <last_name>Source System Extraction (BW)</last_name>
+            <full_name>Background User Source System Extraction (BW)</full_name>
+         </User>
+         <User>
+            <user_name>BASIS</user_name>
+            <first_name/>
+            <last_name>Basis</last_name>
+            <full_name>Basis</full_name>
+         </User>
+         <User>
+            <user_name>BASIS.</user_name>
+            <first_name>basis</first_name>
+            <last_name>.</last_name>
+            <full_name>basis .</full_name>
+         </User>
+         <User>
+            <user_name>CO_SCENTER</user_name>
+            <first_name/>
+            <last_name>CO_SCENTER</last_name>
+            <full_name>CO_SCENTER</full_name>
+         </User>
+         <User>
+            <user_name>CRYSTAL</user_name>
+            <first_name/>
+            <last_name>CRYSTAL</last_name>
+            <full_name>CRYSTAL</full_name>
+         </User>
+         <User>
+            <user_name>CS_SCENTER</user_name>
+            <first_name/>
+            <last_name>SD_SCENTER</last_name>
+            <full_name>SD_SCENTER</full_name>
+         </User>
+         <User>
+            <user_name>ERPUSER</user_name>
+            <first_name/>
+            <last_name>erpuser</last_name>
+            <full_name>erpuser</full_name>
+         </User>
+      </ns1:MT_UserList_Resp>
+   </SOAP:Body>
+</SOAP:Envelope>

@@ -1,0 +1,15 @@
+<core:View controllerName="view.Map" xmlns="sap.m"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:core="sap.ui.core">
+	<Page title="Google Maps with UI5" enableScrolling="false">
+		<content>
+			<HBox id="mapCanvas" fitContainer="true" />
+		</content>
+		<footer>
+			<Bar>
+				<contentMiddle>
+					<Button icon="sap-icon://map" text="Onde estou?" press="hadleGetPosition" />
+				</contentMiddle>
+			</Bar>
+		</footer>
+	</Page>
+</core:View>

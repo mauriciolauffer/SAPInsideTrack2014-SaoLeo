@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv='Content-Type' content='text/html;charset=UTF-8' />
+<meta name="author" content="Mauricio Lauffer">
+<title>UI5 - SAP Gateway - ODataModel</title>
+
+<script src="resources/sap-ui-core.js" id="sap-ui-bootstrap"
+	data-sap-ui-libs="sap.m" data-sap-ui-theme="sap_bluecrystal">
+	
+</script>
+<script>
+	var sUsername = ""; //Usuário do backend
+	var sPassword = ""; //Senha do backend
+	var sURL = ""; //URL do backend
+
+	//Criar Model
+	var oModel = new sap.ui.model.odata.ODataModel(sURL, false, sUsername, sPassword);
+
+	//Criar lista
+	var oList = new sap.m.List({
+		growing : true,
+		growingThreshold : 5
+	});
+
+	//Definir Model para Lista
+	oList.setModel(oModel);
+
+	//Bind itens do Model com Lista
+	oList.bindItems("/SalesOrderCollection", new sap.m.StandardListItem({
+		title : "{SoId}",
+		description : "{Note}",
+		info : "{GrossAmount}"
+	}));
+
+	//Despejar conteúdo no HTML
+	oList.placeAt("content");
+</script>
+
+</head>
+<body class="sapUiBody" role="application">
+	<div id="content"></div>
+</body>
+</html>

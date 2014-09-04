@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv='Content-Type' content='text/html;charset=UTF-8' />
+<meta name="author" content="Mauricio Lauffer">
+<title>UI5 - Webservice - JSONModel</title>
+
+<script src="resources/sap-ui-core.js" id="sap-ui-bootstrap"
+	data-sap-ui-libs="sap.m" data-sap-ui-theme="sap_bluecrystal">
+	
+</script>
+<script>
+	//Criar Model
+	var sURL = "http://jsonplaceholder.typicode.com/users";
+	var oModel = new sap.ui.model.json.JSONModel();
+	oModel.loadData(sURL);
+
+	//Criar lista
+	var oList = new sap.m.List();
+
+	//Definir Model para Lista
+	oList.setModel(oModel);
+
+	//Bind itens do Model com Lista
+	oList.bindItems("/", new sap.m.StandardListItem({
+		title : "{name}",
+		description : "{email}"
+	}));
+
+	//Despejar conteúdo no HTML
+	oList.placeAt("content");
+</script>
+
+</head>
+<body class="sapUiBody" role="application">
+	<div id="content"></div>
+</body>
+</html>
